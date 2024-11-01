@@ -1,7 +1,6 @@
 const cities = [
     { name: "Boston", temperature: 71 },
     { name: "New York", temperature: 75 },
-    { name: "New York", temperature: 75 },
     { name: "Los Angeles", temperature: 80 },
     { name: "Chicago", temperature: 65 },
     { name: "Houston", temperature: 90 },
@@ -37,11 +36,31 @@ for (let city of cities){
 
    let tempLi = document.createElement("p")
 
-   templLi.textContent = "temperature: "+ city.temperature
-   
+   tempLi.textContent = "temperature: "+ city.temperature
+   tempLi.classList.add("temp")
    
     ul.append(li)
     ul.append(tempLi)
-  
+}
+
+
+//part:2
+
+  let temperatureList =  document.querySelectorAll(".temp")
+
+
+
+console.log(temperatureList)
+
+for (let temp of temperatureList){
+    
+    let fahrenheit = Number(temp.textContent.split("temperature: ")[1])
+    celsius = (fahrenheit - 32) * 5/9;
+      
+    temp.textContent=  temp.textContent.replace(fahrenheit,Math.floor(celsius)) + "c"
+
 
 }
+
+
+
