@@ -44,13 +44,13 @@ for (let city of cities){
 }
 
 
-//part:2
+//part:2 /// convert temp to c
 
   let temperatureList =  document.querySelectorAll(".temp")
 
 
 
-console.log(temperatureList)
+// console.log(temperatureList)
 
 for (let temp of temperatureList){
     
@@ -62,5 +62,46 @@ for (let temp of temperatureList){
 
 }
 
+//part 3: color the cities based on their temp
 
 
+let citiesElements = document.querySelectorAll('.city')
+
+console.log(citiesElements)
+
+for (let city of citiesElements){
+    // console.log(city.nextSibling)
+
+    let temp = city.nextSibling.textContent.split("temperature: ")[1].split("c")[0]
+    console.log(temp)
+
+    
+    if(temp>=30){
+        console.log("too hot")
+        city.nextSibling.remove()
+        city.remove()
+
+        continue//stops any code after it and goes to the next loop
+    }
+    
+    if(temp>=20){
+        city.style.color ="red"
+        console.log("hot")
+    }else{
+        city.style.color ="blue"
+        console.log("cold")
+    }
+    // change the color to red for citiies that have temp bigger than 20 and to blue for cities that have less
+
+}
+
+
+//querySelector
+//querySelectorAll
+//createElement
+//Append
+//textContent
+//innetHTML
+//style
+//classList
+// idea of sibling parent, children
